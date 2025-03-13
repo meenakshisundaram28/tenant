@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-tenantonedashboard',
@@ -6,6 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './tenantonedashboard.component.html',
   styleUrl: './tenantonedashboard.component.css'
 })
-export class TenantonedashboardComponent {
+export class TenantonedashboardComponent implements OnInit {
+
+  usertype:any
+
+  constructor(private api:AuthService){}
+
+
+  ngOnInit(): void {
+    this.usertype= this.api.getUser()
+    console.log(this.usertype)
+  }
+
 
 }

@@ -25,8 +25,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ auth: authReducer }),
-    // EffectsModule.forRoot([AuthEffects]), 
-    StoreDevtoolsModule.instrument({ maxAge: 25 }), 
+    // EffectsModule.forRoot([AuthEffects]),
+    // StoreDevtoolsModule.instrument({ maxAge: 25 }), 
   ],
   providers: [provideHttpClient(),
     AuthService

@@ -5,10 +5,7 @@ export interface AuthState {
   }
   
   export interface User {
-    filter: any;
-    id: string;
     email: string;
     password :string
-    role:string
   }
   

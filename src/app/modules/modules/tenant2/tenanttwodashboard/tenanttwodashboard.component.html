@@ -8,6 +8,25 @@
   </ul>
 </nav>
 <div class="content">
-  <h1>Welcome to the Main Content</h1>
-  <p>This is the main area of your webpage.</p>
+  <div class="card-container">
+    <!-- Card 1 -->
+    <div class="card" *ngIf="usertype === 'admin'">
+      <img src="https://via.placeholder.com/300" alt="Placeholder Image">
+      <div class="card-content">
+        <h2>Card Title 1</h2>
+        <p>This is the content of the first card. You can add more details here.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" *ngIf="(usertype === 'admin' || usertype === 'user' )">
+      <img src="https://via.placeholder.com/300" alt="Placeholder Image">
+      <div class="card-content">
+        <h2>Card Title 2</h2>
+        <p>This is the content of the second card. You can add more details here.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { login } from '../actions/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   tenanttype:any
   usertype:any
@@ -22,7 +24,7 @@ export class LoginComponent {
     {email:'erumamurugesa@gmail.com',usetype:'user',Tenant:'one'}
   ]
 
-  constructor(private fb: FormBuilder,private api:AuthService,private router: Router) {}
+  constructor(private fb: FormBuilder,private api:AuthService,private router: Router,private store: Store) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -32,6 +34,7 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+   
     if (this.loginForm.valid) {
       if(this.userRole.filter((item:any)=> item.email === this.loginForm.get('email')?.value)){
         debugger
@@ -40,10 +43,12 @@ export class LoginComponent {
         if(this.userRole.filter((item:any)=> item.email === data.email)){
           this.tenanttype = this.userRole.filter((item:any)=> item.email === data.email)
           if(this.tenanttype[0].Tenant === 'one'){
-            this.api.setUser(this.tenanttype.usertype)
+            this.store.dispatch(login(this.loginForm.getRawValue()));
+            this.api.setUser(this.tenanttype[0].usetype)
             this.router.navigate(['/tenant1']);
           } else if(this.tenanttype[0].Tenant === 'two'){
-            this.api.setUser(this.tenanttype.usertype)
+            this.api.setUser(this.tenanttype[0].usetype)
+            this.store.dispatch(login(this.loginForm.getRawValue()));
             this.router.navigate(['/tenant2']);
           }
         }

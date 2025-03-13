@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
-import { selectUserRole } from '../selectors/auth.selectors';
+import { Observable, map, take } from 'rxjs';
+import { AuthState } from '../models/auth.model'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private store: Store, private router: Router) {}
+  constructor(private store: Store<{ auth: AuthState }>, private router: Router) {}
 
   canActivate(): Observable<boolean> {
-    return this.store.select(selectUserRole).pipe(
-      map(role => {
-        if (role) return true;
-        this.router.navigate(['/login']);
-        return false;
+    return this.store.select((state) => state.auth.isAuthenticated).pipe(
+      take(1), // Take only the latest value and complete the observable
+      map((isAuthenticated) => {
+        debugger
+        if (isAuthenticated) {
+          return true; // Allow access to the route
+        } else {
+          this.router.navigate(['/login']); // Redirect to login page
+          return false; // Deny access to the route
+        }
       })
     );
   }
