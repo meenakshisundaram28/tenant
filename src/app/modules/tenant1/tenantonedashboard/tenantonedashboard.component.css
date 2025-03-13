@@ -1,0 +1,28 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    height: 100vh; /* Full height */
+    background-color: #333;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #575757;
+  }
+  
+  /* Content Styles */
+  .content {
+    margin-left: 220px; /* Adjust margin to avoid overlap with sidebar */
+    padding: 20px;
+  }

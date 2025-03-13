@@ -1,0 +1,38 @@
+[debug] [2025-03-13T10:43:07.733Z] ----------------------------------------------------------------------
+[debug] [2025-03-13T10:43:07.739Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ELCOT\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting:tenant2
+[debug] [2025-03-13T10:43:07.741Z] CLI Version:   13.34.0
+[debug] [2025-03-13T10:43:07.741Z] Platform:      win32
+[debug] [2025-03-13T10:43:07.741Z] Node Version:  v22.14.0
+[debug] [2025-03-13T10:43:07.742Z] Time:          Thu Mar 13 2025 16:13:07 GMT+0530 (India Standard Time)
+[debug] [2025-03-13T10:43:07.742Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-13T10:43:08.495Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-13T10:43:08.497Z] > authorizing via signed-in user (sundarammeenakshi880@gmail.com)
+[debug] [2025-03-13T10:43:08.497Z] [iam] checking project tenant-47531 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-03-13T10:43:08.501Z] Checked if tokens are valid: true, expires at: 1741865841637
+[debug] [2025-03-13T10:43:08.501Z] Checked if tokens are valid: true, expires at: 1741865841637
+[debug] [2025-03-13T10:43:08.504Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/tenant-47531:testIamPermissions [none]
+[debug] [2025-03-13T10:43:08.504Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/tenant-47531:testIamPermissions x-goog-quota-user=projects/tenant-47531
+[debug] [2025-03-13T10:43:08.505Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/tenant-47531:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-03-13T10:43:20.150Z] *** [apiv2] error from fetch(https://cloudresourcemanager.googleapis.com/v1/projects/tenant-47531:testIamPermissions, {"headers":{},"method":"POST","body":"{\"permissions\":[\"firebase.projects.get\",\"firebasehosting.sites.update\"]}"}): FetchError: request to https://cloudresourcemanager.googleapis.com/v1/projects/tenant-47531:testIamPermissions failed, reason: socket hang up
+[debug] [2025-03-13T10:43:20.151Z] [iam] error while checking permissions, command may fail: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/tenant-47531:testIamPermissions
+[debug] [2025-03-13T10:43:20.154Z] Checked if tokens are valid: true, expires at: 1741865841637
+[debug] [2025-03-13T10:43:20.154Z] Checked if tokens are valid: true, expires at: 1741865841637
+[debug] [2025-03-13T10:43:20.155Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tenant-47531 [none]
+[debug] [2025-03-13T10:43:35.274Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tenant-47531 200
+[debug] [2025-03-13T10:43:35.275Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tenant-47531 {"projectId":"tenant-47531","projectNumber":"82285427773","displayName":"tenant","name":"projects/tenant-47531","resources":{"hostingSite":"tenant-47531"},"state":"ACTIVE","etag":"1_f0404c8b-619a-452c-92f1-e84f97e1d1f7"}
+[info] 
+[info] === Deploying to 'tenant-47531'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-03-13T10:43:35.314Z] Checked if tokens are valid: true, expires at: 1741865841637
+[debug] [2025-03-13T10:43:35.315Z] Checked if tokens are valid: true, expires at: 1741865841637
+[debug] [2025-03-13T10:43:35.315Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/tenant-47531/versions [none]
+[debug] [2025-03-13T10:43:35.316Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/tenant-47531/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-03-13T10:43:53.054Z] *** [apiv2] error from fetch(https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/tenant-47531/versions, {"headers":{},"method":"POST","body":"{\"status\":\"CREATED\",\"labels\":{\"deployment-tool\":\"cli-firebase\"}}"}): FetchError: request to https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/tenant-47531/versions failed, reason: socket hang up
+[debug] [2025-03-13T10:43:58.123Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\ELCOT\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:269:49)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+[error] 
+[error] Error: An unexpected error has occurred.

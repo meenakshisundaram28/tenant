@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "tenant-47531"
+  },
+  "targets": {
+    "tenant-47531": {
+      "hosting": {
+        "tenant2": [
+          "tenant-47531"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
